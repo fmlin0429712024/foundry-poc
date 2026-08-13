@@ -40,3 +40,22 @@ this account:
 So: the `Order` object type, its properties, standard actions, and the custom `Assign` action must all be defined
 via the **Ontology Manager** application (GUI). This is the PoC's one unavoidable GUI step per the brief's own
 guardrail ("say so explicitly rather than silently falling back to GUI").
+
+## Ontology Manager gotcha: "Incompatible parameter for 'Create or modify object' rule"
+
+Hit this save error when adding a second Modify-type action (`Assign`) to the `Order` object type in the same
+Ontology Manager session as the object types were being created. Root cause was never fully pinned down (the
+referenced Action Type RID in the error resolved to "not found" both times, suggesting a validation-time
+synthetic reference rather than a real corrupted resource) — some in-session state from the wizard interfered
+when creating the second Modify action for the same object type. **Fix that worked**: delete the broken action
+type from "Unsaved changes" (safe — new/unsaved resources delete immediately without affecting other pending
+changes) and recreate it from scratch via the object type's own "Action types" panel → "+ New" (not while another
+action's detail page is open). Recreating it this way, with `Modify object(s)` selected explicitly at step 1,
+saved cleanly on the first attempt.
+
+## Ontology Manager gotcha: object type sync delay
+
+Right after creating a dataset-backed object type (`Order`, `Customer`) and saving, querying its objects via
+`client.ontologies.OntologyObject.list(...)` returns a `ConflictError` / `OntologySyncingObjectTypes` for a few
+minutes while Foundry indexes the backing dataset into real object instances. Expected — just retry after a
+short wait.
