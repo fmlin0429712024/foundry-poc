@@ -3,3 +3,4 @@
 !.env.example
 *.token
 .DS_Store
+.venv

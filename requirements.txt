@@ -1,0 +1,2 @@
+foundry-platform-sdk
+python-dotenv
