@@ -26,3 +26,17 @@ access without the token), kept here so scripts/commands can reference them with
   as explored — `Job.get(..., preview=True)` and `Transaction.get` only return status (e.g. `FAILED`/`ABORTED`),
   not a reason. Diagnosing failures required reasoning from symptoms rather than reading logs; if a future
   failure can't be diagnosed this way, the Foundry browser UI (build's log panel) is the fallback.
+
+## GUI-only step: Ontology object type / action definition
+
+Confirmed via two independent checks that defining a new Object Type or Action Type has no CLI/SDK/code path on
+this account:
+1. `foundry_sdk.v2.ontologies` clients (`ObjectType`, `ActionType`) expose only read methods (`get`, `list`,
+   `get_full_metadata`, `get_edits_history`, etc.) — no `create`.
+2. The project's "+ New" → Developer Tools wizard, filtered to the "Ontology" category, offers only
+   **Workflow Lineage** (an ontology/model/function relationship explorer) — no "Ontology as Code" or object-type
+   authoring template exists in this environment.
+
+So: the `Order` object type, its properties, standard actions, and the custom `Assign` action must all be defined
+via the **Ontology Manager** application (GUI). This is the PoC's one unavoidable GUI step per the brief's own
+guardrail ("say so explicitly rather than silently falling back to GUI").
