@@ -1,0 +1,111 @@
+order_id,customer_id,item_name,dueDateTime,status,assignee,order_placement_date
+B-ORD-20000,B-2027,Whiteboard,2024-09-12T11:19:00,pending,jsantos,03/22/2024
+B-ORD-20001,B-2019,Shredder,02/17/2024,cancelled,mklein,03/05/2024
+B-ORD-20002,B-2014,Copy Paper (Case),2024-07-12T14:39:00,delivered,mklein,2024-12-25
+B-ORD-20003,B-2038,Desk Chair,2025-07-17T05:52:00,cancelled,mklein,04/12/2025
+B-ORD-20004,B-9904,Stapler,2024-12-28,shipped,rwong,08/28/2025
+B-ORD-20005,B-2035,Envelopes (Box),2024-01-14T12:32:00,delivered,dpatel,2025-02-08
+B-ORD-20006,B-9906,Ink Cartridge - Black,2025-01-10T22:53:00,delivered,rwong,2025-02-27
+B-ORD-20007,B-2002,Desk Lamp,2025-10-17T03:49:00,shipped,dpatel,05/07/2024
+,B-2049,Sticky Notes (Pack),2024-10-18T20:32:00,pending,jsantos,2024-08-03
+B-ORD-20009,B-2020,Stapler,2024-09-12T16:34:00,cancelled,abrown,10/14/2024
+,B-2003,Copy Paper (Case),2024-06-26,open,,11/13/2025
+B-ORD-20011,B-2010,Ink Cartridge - Black,2025-11-15,open,,2025-01-12
+B-ORD-20012,B-2023,Filing Cabinet,2025-05-17T17:30:00,pending,jsantos,2024-04-02
+B-ORD-20013,B-2051,Whiteboard,07/24/2025,delivered,,2024-06-09
+B-ORD-20014,B-2041,Stapler,2024-07-20T17:18:00,open,jsantos,2024-05-26
+B-ORD-20015,B-2048,Filing Cabinet,2025-08-02T19:27:00,open,dpatel,12/14/2024
+B-ORD-20016,B-2040,Ink Cartridge - Black,2025-10-22T01:08:00,shipped,jsantos,22-Dec-2024
+B-ORD-20017,B-2048,Filing Cabinet,2024-08-25T18:08:00,delivered,jsantos,22-Mar-2025
+B-ORD-20018,B-2009,Whiteboard,2025-09-04T08:45:00,cancelled,jsantos,01/24/2024
+B-ORD-20019,B-2015,Envelopes (Box),12/15/2024,shipped,,02/05/2024
+,B-2025,Binder Clips (Box),2024-04-04,open,jsantos,2024-03-23
+B-ORD-20021,B-2043,Whiteboard,2025-12-24,cancelled,dpatel,03/20/2024
+B-ORD-20022,B-2005,Label Maker,2024-09-21T04:27:00,open,,08/15/2025
+B-ORD-20023,B-2013,Binder Clips (Box),2024-05-28,cancelled,jsantos,03/11/2024
+B-ORD-20024,B-2042,Monitor Stand,2025-03-06,open,dpatel,02/17/2024
+,B-2045,Whiteboard,2024-10-21,shipped,,2024-05-21
+B-ORD-20026,B-2053,Copy Paper (Case),2025-03-15T15:29:00,cancelled,mklein,07/10/2025
+B-ORD-20027,B-2056,Binder Clips (Box),2025-09-04T07:29:00,delivered,mklein,2024-06-13
+B-ORD-20028,B-9928,Label Maker,2025-03-27T18:46:00,pending,rwong,07/28/2025
+B-ORD-20029,B-2025,Binder Clips (Box),2024-08-08T18:22:00,shipped,rwong,01-Aug-2024
+B-ORD-20030,B-2053,Whiteboard,2025-03-09T12:23:00,open,abrown,2024-08-10
+B-ORD-20031,B-2023,Desk Chair,2024-10-22T04:06:00,shipped,abrown,2025-02-13
+B-ORD-20032,B-2015,Copy Paper (Case),2025-01-05T15:33:00,cancelled,abrown,10/17/2025
+B-ORD-20033,B-2026,Binder Clips (Box),2025-09-18T22:36:00,open,jsantos,03/13/2025
+B-ORD-20034,B-2033,Desk Chair,2024-11-26T23:03:00,pending,abrown,10/10/2024
+B-ORD-20035,B-2031,Desk Lamp,2024-02-07T14:20:00,delivered,,03/27/2024
+B-ORD-20036,B-2049,Binder Clips (Box),2025-04-18T21:30:00,shipped,mklein,2024-08-28
+B-ORD-20037,B-2042,Ink Cartridge - Color,2025-04-09,pending,,06/22/2025
+B-ORD-20038,B-2029,Monitor Stand,2025-11-18T12:52:00,pending,jsantos,09/26/2025
+,B-2007,Ink Cartridge - Color,2025-04-27T17:44:00,open,abrown,2025-06-15
+B-ORD-20040,B-2004,Copy Paper (Case),2025-02-14T22:30:00,pending,dpatel,11/17/2024
+B-ORD-20041,B-2013,Ink Cartridge - Color,05/11/2025,open,,07/21/2025
+B-ORD-20042,B-2056,Ink Cartridge - Black,01/27/2025,shipped,dpatel,2025-01-06
+,B-2008,Binder Clips (Box),2024-09-16T16:29:00,open,jsantos,10-Jun-2025
+B-ORD-20044,B-2021,Shredder,05/19/2024,delivered,,2024-12-06
+B-ORD-20045,B-2032,Sticky Notes (Pack),2024-06-08T08:24:00,shipped,jsantos,04-Nov-2024
+B-ORD-20046,B-2001,Copy Paper (Case),2025-11-04T09:10:00,cancelled,,05/21/2025
+B-ORD-20047,B-2050,Ink Cartridge - Black,2025-08-05T23:38:00,cancelled,rwong,05/12/2024
+B-ORD-20048,B-2018,Binder Clips (Box),2024-12-12T18:07:00,cancelled,abrown,04/22/2024
+B-ORD-20049,B-2013,Ink Cartridge - Color,2025-12-19T02:57:00,open,rwong,06/28/2025
+B-ORD-20050,B-2045,Desk Chair,2025-12-01T08:52:00,pending,abrown,01/18/2025
+B-ORD-20051,B-2054,Stapler,2025-08-02,delivered,jsantos,18-Feb-2024
+B-ORD-20052,B-2031,Filing Cabinet,2025-02-06,pending,,07/03/2024
+,B-9953,Label Maker,2025-04-08T11:09:00,open,dpatel,05/15/2025
+B-ORD-20054,B-2060,Monitor Stand,2024-01-15T07:47:00,delivered,mklein,01/08/2024
+B-ORD-20055,B-2060,Envelopes (Box),2025-12-19,shipped,mklein,01/05/2025
+B-ORD-20056,B-2052,Copy Paper (Case),2024-09-19T20:43:00,delivered,dpatel,09/08/2025
+B-ORD-20057,B-2052,Whiteboard,2025-03-10T05:48:00,pending,,07/26/2025
+B-ORD-20058,B-2012,Binder Clips (Box),2025-09-05T07:16:00,open,rwong,02-Aug-2025
+B-ORD-20059,B-2056,Monitor Stand,2024-10-02,cancelled,mklein,04/02/2025
+B-ORD-20060,B-2027,Desk Lamp,2025-02-24,pending,rwong,01-May-2024
+B-ORD-20061,B-2060,Filing Cabinet,2025-05-09T16:56:00,open,,05/13/2025
+B-ORD-20062,B-2026,Monitor Stand,2024-04-24T00:16:00,cancelled,abrown,04/12/2025
+B-ORD-20063,B-2015,Ink Cartridge - Color,2025-08-18,delivered,rwong,06/08/2025
+B-ORD-20064,B-2013,Envelopes (Box),2024-09-21,open,,03/24/2025
+B-ORD-20065,B-2033,Ink Cartridge - Black,2025-01-07,cancelled,rwong,03/27/2024
+B-ORD-20066,B-9966,Binder Clips (Box),2025-12-09,delivered,,09/18/2025
+B-ORD-20067,B-2008,Binder Clips (Box),2025-05-27T08:50:00,shipped,rwong,09/05/2024
+B-ORD-20068,B-2054,Label Maker,2024-11-25T02:25:00,cancelled,rwong,04/10/2024
+,B-9969,USB Hub,2024-06-19T16:58:00,pending,,2025-03-03
+B-ORD-20070,B-2022,Monitor Stand,11/02/2024,cancelled,mklein,2025-01-03
+B-ORD-20071,B-2032,Monitor Stand,2025-07-22,open,abrown,02/10/2024
+B-ORD-20072,B-2008,Shredder,2025-10-20,delivered,rwong,07/08/2024
+B-ORD-20073,B-2031,Monitor Stand,2024-05-26T22:04:00,pending,rwong,07/06/2025
+B-ORD-20074,B-2057,Copy Paper (Case),2025-05-15T08:06:00,pending,rwong,07/11/2025
+B-ORD-20075,B-2033,Stapler,2025-10-20T12:00:00,delivered,,02/01/2024
+B-ORD-20076,B-2020,Ink Cartridge - Black,2025-03-09T08:31:00,pending,rwong,10/17/2024
+B-ORD-20077,B-2005,Sticky Notes (Pack),2024-10-20T14:06:00,open,rwong,2024-06-09
+B-ORD-20078,B-2027,Label Maker,2024-11-20,pending,rwong,2025-08-11
+B-ORD-20079,B-2026,Shredder,2025-04-11,shipped,dpatel,24-May-2025
+B-ORD-20080,B-2042,Sticky Notes (Pack),2025-12-07,delivered,,22-Mar-2024
+B-ORD-20081,B-2020,Shredder,2025-07-03T19:30:00,cancelled,abrown,2024-05-22
+B-ORD-20082,B-2033,Shredder,2024-09-20T03:49:00,shipped,mklein,2025-09-02
+B-ORD-20083,B-9983,Filing Cabinet,2024-07-04T03:16:00,cancelled,abrown,22-Nov-2025
+B-ORD-20084,B-2036,Monitor Stand,2024-12-17T11:01:00,shipped,rwong,2025-06-13
+B-ORD-20085,B-2056,Shredder,2025-04-17T11:30:00,delivered,jsantos,03/12/2025
+,B-9986,USB Hub,2024-02-22T23:15:00,cancelled,mklein,2024-12-04
+B-ORD-20087,B-2037,Ink Cartridge - Black,2025-11-22,pending,rwong,04/26/2025
+B-ORD-20088,B-2055,Shredder,2024-02-19T17:11:00,pending,rwong,2025-04-07
+B-ORD-20089,B-2039,Monitor Stand,2024-07-19,cancelled,mklein,09/21/2025
+B-ORD-20090,B-2025,Filing Cabinet,2025-02-08T03:11:00,pending,abrown,10/19/2024
+B-ORD-20091,B-2045,Binder Clips (Box),2024-12-21T17:10:00,pending,mklein,07/14/2024
+B-ORD-20092,B-2004,Label Maker,2025-07-18T13:43:00,delivered,rwong,06/01/2025
+B-ORD-20093,B-2059,Binder Clips (Box),2025-05-06,delivered,abrown,04/10/2024
+B-ORD-20094,B-2022,Shredder,01/25/2025,open,,09/27/2025
+B-ORD-20095,B-2025,Label Maker,2024-02-15,cancelled,,01/15/2025
+B-ORD-20096,B-2050,Label Maker,2024-04-26T18:22:00,cancelled,abrown,2024-07-06
+B-ORD-20097,B-2023,Binder Clips (Box),2024-11-27,open,jsantos,19-May-2025
+B-ORD-20098,B-2010,Shredder,2025-11-13,delivered,rwong,2025-04-05
+B-ORD-20099,B-2060,Envelopes (Box),2025-06-15T10:37:00,open,,02/13/2025
+B-ORD-20100,B-2054,Whiteboard,2024-04-14T15:17:00,shipped,jsantos,2024-06-28
+B-ORD-20101,B-2039,USB Hub,2024-08-01T05:28:00,delivered,mklein,06/22/2024
+B-ORD-20102,B-2051,Filing Cabinet,2025-05-03,open,rwong,05/06/2025
+B-ORD-20103,B-2059,Copy Paper (Case),2024-04-16T04:37:00,delivered,dpatel,2024-04-14
+,B-2009,Ink Cartridge - Color,2024-07-03T03:20:00,shipped,mklein,07/23/2024
+B-ORD-20105,B-2010,Monitor Stand,2024-01-20,pending,rwong,11/22/2024
+B-ORD-20106,B-2018,Monitor Stand,2025-12-13,pending,jsantos,2024-02-04
+B-ORD-20107,B-2048,Desk Lamp,2025-01-28,pending,,2025-10-24
+B-ORD-20108,B-2020,USB Hub,2024-10-03T11:59:00,delivered,,08/13/2024
+B-ORD-20109,B-2042,Shredder,2024-02-01T00:16:00,open,,06-Nov-2025

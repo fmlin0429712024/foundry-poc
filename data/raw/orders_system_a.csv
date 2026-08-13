@@ -1,0 +1,121 @@
+OrderID,customer_id,ItemName,Order_Due_Date,STATUS,assignee
+A-ORD-10000,A-1023,Ink Cartridge - Black,08/27/2025,Cancelled,dpatel
+A-ORD-10001,A-1007,Envelopes (Box),2024-03-09,Cancelled,mklein
+A-ORD-10002,A-1016,USB Hub,11/28/2025,Shipped,
+,A-1020,Copy Paper (Case),01/11/2024,Shipped,mklein
+A-ORD-10004,A-1001,Stapler,02/23/2024,Shipped,abrown
+A-ORD-10005,A-9905,Filing Cabinet,01/12/2024,Open,jsantos
+A-ORD-10006,A-1048,Desk Lamp,08-Mar-2024,Pending,rwong
+,A-1026,Shredder,07/26/2024,Open,rwong
+A-ORD-10008,A-1037,Filing Cabinet,05/27/2024,Pending,rwong
+A-ORD-10009,A-1020,Filing Cabinet,11/17/2025,Cancelled,jsantos
+A-ORD-10010,A-1014,Monitor Stand,05/02/2024,Shipped,
+A-ORD-10011,A-1008,Whiteboard,10/07/2025,Delivered,dpatel
+A-ORD-10012,A-1056,Desk Lamp,11/07/2025,Shipped,abrown
+A-ORD-10013,A-1024,Binder Clips (Box),05/22/2025,Shipped,abrown
+A-ORD-10014,A-1052,Desk Lamp,03/20/2025,Open,jsantos
+A-ORD-10015,A-1050,Filing Cabinet,08/15/2025,Cancelled,rwong
+A-ORD-10016,A-1051,Stapler,05/17/2025,Pending,
+A-ORD-10017,A-1003,Ink Cartridge - Color,08/20/2024,Cancelled,mklein
+A-ORD-10018,A-1011,USB Hub,2024-12-01,Pending,mklein
+A-ORD-10019,A-1043,Ink Cartridge - Color,2024-02-15,Cancelled,abrown
+A-ORD-10020,A-1048,Label Maker,2025-12-17,Cancelled,rwong
+A-ORD-10021,A-1019,Shredder,2025-04-27,Cancelled,rwong
+A-ORD-10022,A-9922,Desk Chair,04/09/2025,Cancelled,dpatel
+A-ORD-10023,A-1054,Ink Cartridge - Color,02/14/2025,Delivered,rwong
+A-ORD-10024,A-1058,Monitor Stand,12/01/2025,Shipped,jsantos
+A-ORD-10025,A-1032,Binder Clips (Box),12/24/2024,Shipped,rwong
+A-ORD-10026,A-1060,Whiteboard,06-Dec-2025,Cancelled,abrown
+,A-1044,USB Hub,01/03/2025,Delivered,mklein
+,A-1016,Sticky Notes (Pack),06/11/2025,Delivered,jsantos
+A-ORD-10029,A-1004,Filing Cabinet,2024-04-21,Open,
+,A-1002,Monitor Stand,03/08/2024,Open,abrown
+A-ORD-10031,A-1028,Ink Cartridge - Black,2024-10-20,Pending,jsantos
+,A-1052,Envelopes (Box),07/13/2024,Pending,dpatel
+A-ORD-10033,A-1060,Stapler,10/26/2024,Delivered,
+A-ORD-10034,A-1032,Label Maker,04-Aug-2025,Delivered,
+A-ORD-10035,A-1050,Desk Chair,10/26/2025,Cancelled,jsantos
+A-ORD-10036,A-1020,Envelopes (Box),08/08/2025,Delivered,jsantos
+,A-1014,Sticky Notes (Pack),04/12/2025,Cancelled,
+A-ORD-10038,A-1015,Stapler,04/24/2025,Pending,
+A-ORD-10039,A-1002,Stapler,05/08/2025,Shipped,
+A-ORD-10040,A-1034,Desk Lamp,2025-09-11,Shipped,jsantos
+A-ORD-10041,A-1008,Desk Lamp,09/25/2024,Delivered,jsantos
+A-ORD-10042,A-1023,Stapler,04/10/2024,Shipped,dpatel
+A-ORD-10043,A-9943,Copy Paper (Case),09/10/2024,Delivered,dpatel
+A-ORD-10044,A-1036,Filing Cabinet,02-Mar-2025,Delivered,dpatel
+A-ORD-10045,A-9945,USB Hub,11/02/2024,Cancelled,jsantos
+A-ORD-10046,A-1032,Monitor Stand,2024-10-26,Delivered,rwong
+A-ORD-10047,A-1034,Desk Chair,10/20/2024,Open,
+A-ORD-10048,A-1013,Ink Cartridge - Color,03/18/2024,Delivered,rwong
+A-ORD-10049,A-9949,Desk Chair,12/10/2025,Pending,jsantos
+A-ORD-10050,A-1015,Whiteboard,02/18/2024,Shipped,
+A-ORD-10051,A-1047,Desk Lamp,10/10/2025,Shipped,
+A-ORD-10052,A-1036,Stapler,2025-10-02,Cancelled,jsantos
+,A-1052,Label Maker,19-Oct-2024,Shipped,abrown
+,A-1038,Binder Clips (Box),11/15/2025,Cancelled,rwong
+A-ORD-10055,A-1027,Whiteboard,2024-06-11,Shipped,rwong
+A-ORD-10056,A-1057,Binder Clips (Box),01/15/2024,Shipped,dpatel
+A-ORD-10057,A-1001,USB Hub,09/15/2025,Cancelled,jsantos
+A-ORD-10058,A-1004,Ink Cartridge - Color,18-May-2024,Delivered,
+,A-1060,Ink Cartridge - Color,12/06/2025,Cancelled,rwong
+A-ORD-10060,A-1037,Stapler,11/27/2024,Shipped,abrown
+A-ORD-10061,A-1038,Ink Cartridge - Color,08/18/2024,Cancelled,abrown
+A-ORD-10062,A-9962,Shredder,2025-07-11,Shipped,
+A-ORD-10063,A-1039,Label Maker,03/15/2025,Cancelled,
+A-ORD-10064,A-1015,Desk Lamp,04/19/2025,Delivered,dpatel
+A-ORD-10065,A-1029,Whiteboard,11/26/2024,Open,mklein
+A-ORD-10066,A-1036,Stapler,2024-09-15,Delivered,
+A-ORD-10067,A-1019,Filing Cabinet,10/23/2025,Shipped,
+A-ORD-10068,A-1049,Desk Lamp,08/28/2024,Pending,
+A-ORD-10069,A-1006,Whiteboard,02/25/2024,Shipped,dpatel
+,A-1023,Filing Cabinet,06/14/2024,Delivered,abrown
+A-ORD-10071,A-1048,Label Maker,07/20/2024,Cancelled,mklein
+A-ORD-10072,A-1051,Copy Paper (Case),08/10/2024,Shipped,abrown
+A-ORD-10073,A-1037,Label Maker,2025-05-07,Open,mklein
+A-ORD-10074,A-1053,Desk Chair,01/27/2025,Cancelled,
+A-ORD-10075,A-9975,Monitor Stand,2025-12-16,Pending,abrown
+A-ORD-10076,A-1019,USB Hub,12/25/2024,Open,jsantos
+A-ORD-10077,A-1010,Stapler,05/11/2025,Pending,
+A-ORD-10078,A-1020,Label Maker,09-Mar-2025,Shipped,
+A-ORD-10079,A-1006,Ink Cartridge - Black,28-Apr-2025,Cancelled,jsantos
+A-ORD-10080,A-1008,Sticky Notes (Pack),06/22/2025,Shipped,dpatel
+A-ORD-10081,A-1043,Filing Cabinet,10/08/2024,Delivered,
+A-ORD-10082,A-1003,Desk Chair,08/04/2024,Cancelled,mklein
+A-ORD-10083,A-1053,Binder Clips (Box),2024-07-19,Open,
+A-ORD-10084,A-1003,Desk Lamp,06/07/2025,Pending,
+A-ORD-10085,A-1050,Filing Cabinet,01/13/2025,Open,
+A-ORD-10086,A-1049,Monitor Stand,01/02/2025,Pending,
+A-ORD-10087,A-1016,Monitor Stand,04/27/2024,Pending,
+,A-1011,Ink Cartridge - Black,09/09/2024,Open,mklein
+,A-1018,Monitor Stand,06/01/2024,Pending,
+A-ORD-10090,A-9990,Sticky Notes (Pack),06/17/2024,Pending,abrown
+,A-1051,Binder Clips (Box),05/15/2024,Delivered,
+A-ORD-10092,A-1036,Stapler,02/11/2024,Shipped,abrown
+A-ORD-10093,A-1047,Binder Clips (Box),05/15/2025,Open,
+A-ORD-10094,A-1016,Whiteboard,08/08/2025,Delivered,rwong
+A-ORD-10095,A-1051,Desk Chair,06/05/2025,Open,dpatel
+A-ORD-10096,A-1010,Binder Clips (Box),01/19/2025,Delivered,jsantos
+A-ORD-10097,A-1055,Copy Paper (Case),05/20/2025,Cancelled,abrown
+A-ORD-10098,A-1007,Filing Cabinet,2024-09-12,Cancelled,mklein
+A-ORD-10099,A-1048,Monitor Stand,11/21/2024,Shipped,dpatel
+A-ORD-10100,A-1026,Filing Cabinet,01/06/2024,Delivered,dpatel
+A-ORD-10101,A-10001,Desk Lamp,09/07/2025,Shipped,mklein
+A-ORD-10102,A-1044,Monitor Stand,02/02/2024,Cancelled,dpatel
+A-ORD-10103,A-1039,Monitor Stand,08/14/2025,Cancelled,dpatel
+A-ORD-10104,A-1045,Sticky Notes (Pack),09/22/2025,Delivered,abrown
+,A-1016,Shredder,03/25/2025,Open,dpatel
+A-ORD-10106,A-1042,Desk Lamp,04/17/2025,Open,rwong
+,A-1025,Monitor Stand,2025-07-19,Delivered,jsantos
+,A-1060,Monitor Stand,08/27/2025,Open,mklein
+A-ORD-10109,A-10009,Label Maker,05/24/2025,Pending,dpatel
+A-ORD-10110,A-1058,Filing Cabinet,06/24/2024,Pending,jsantos
+A-ORD-10111,A-1050,Stapler,03/25/2025,Cancelled,
+A-ORD-10112,A-1050,USB Hub,10/11/2025,Open,rwong
+A-ORD-10113,A-1004,Filing Cabinet,09/03/2025,Open,dpatel
+A-ORD-10114,A-1006,Monitor Stand,10/17/2025,Cancelled,
+A-ORD-10115,A-1044,USB Hub,04/11/2025,Open,rwong
+A-ORD-10116,A-1054,Stapler,09/21/2024,Delivered,rwong
+A-ORD-10117,A-1023,Whiteboard,07/25/2025,Open,
+A-ORD-10118,A-1043,USB Hub,2025-07-10,Cancelled,
+A-ORD-10119,A-1027,Desk Chair,11/23/2025,Open,jsantos

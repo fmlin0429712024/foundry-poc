@@ -1,0 +1,62 @@
+consolidated_customer_id,customer_name,system_a_customer_id,system_b_customer_id
+CUST-0001,Brooks Business Solutions,A-1001,B-2001
+CUST-0002,Avery Jansen,A-1002,B-2002
+CUST-0003,Morgan Evans,A-1003,B-2003
+CUST-0004,Quinn Mercer,A-1004,B-2004
+CUST-0005,Nolan Supply Co,,B-2005
+CUST-0006,Casey Diaz,A-1006,
+CUST-0006,DUPLICATE Casey Diaz,A-1006,
+CUST-0007,Jamie Chen,A-1007,B-2007
+CUST-0008,Alex Mercer,A-1008,B-2008
+CUST-0009,Chen Business Solutions,,B-2009
+CUST-0010,Kwon Depot LLC,A-1010,B-2010
+CUST-0011,Casey Chen,A-1011,
+CUST-0012,Drew Lund,,B-2012
+CUST-0013,Quinn Farrell,A-1013,B-2013
+CUST-0014,Quinn Diaz,A-1014,B-2014
+CUST-0015,Casey Lund,A-1015,B-2015
+CUST-0016,Rowan Nolan,A-1016,
+CUST-0017,Hale Business Solutions,A-1017,
+CUST-0018,Mercer Enterprises,A-1018,B-2018
+CUST-0019,Lund Holdings,A-1019,B-2019
+CUST-0020,Jansen Business Solutions,A-1020,B-2020
+CUST-0021,Gomez Depot LLC,,B-2021
+CUST-0022,Rowan Brooks,,B-2022
+CUST-0023,Quinn Hale,A-1023,B-2023
+CUST-0024,Iyer Business Solutions,A-1024,
+CUST-0025,Avery Chen,A-1025,B-2025
+CUST-0026,Quinn Gomez,A-1026,B-2026
+CUST-0027,Avery Mercer,A-1027,B-2027
+CUST-0028,Jordan Ortiz,A-1028,
+CUST-0029,Evans Workspace Group,A-1029,B-2029
+CUST-0030,Jansen Supply Co,A-1030,B-2030
+CUST-0031,Riley Ortiz,,B-2031
+CUST-0032,Reese Chen,A-1032,B-2032
+CUST-0033,Rowan Jansen,,B-2033
+CUST-0034,Sam Diaz,A-1034,
+CUST-0035,Morgan Jansen,,B-2035
+CUST-0036,Hale Enterprises,A-1036,B-2036
+CUST-0037,Morgan Chen,A-1037,B-2037
+CUST-0038,Morgan Brooks,A-1038,B-2038
+CUST-0039,Alex Ortiz,A-1039,B-2039
+CUST-0040,Drew Evans,A-1040,B-2040
+CUST-0041,Kwon Holdings,A-1041,B-2041
+CUST-0042,Jordan Chen,A-1042,B-2042
+CUST-0043,Skyler Mercer,A-1043,B-2043
+CUST-0044,Brooks & Sons,A-1044,
+CUST-0045,Morgan Evans,A-1045,B-2045
+CUST-0046,Drew Evans,,B-2046
+CUST-0047,Ortiz Office Partners,A-1047,
+CUST-0048,Chen Depot LLC,A-1048,B-2048
+CUST-0049,Jamie Brooks,A-1049,B-2049
+CUST-0050,Rowan Nolan,A-1050,B-2050
+CUST-0051,Nolan Holdings,A-1051,B-2051
+CUST-0052,Kwon Supply Co,A-1052,B-2052
+CUST-0053,Jansen Workspace Group,A-1053,B-2053
+CUST-0054,Chen Office Partners,A-1054,B-2054
+CUST-0055,Reese Evans,A-1055,B-2055
+CUST-0056,Quinn Kwon,A-1056,B-2056
+CUST-0057,Quinn Mercer,A-1057,B-2057
+CUST-0058,Quinn Farrell,A-1058,
+CUST-0059,Brooks Holdings,A-1059,B-2059
+CUST-0060,Sam Evans,A-1060,B-2060
