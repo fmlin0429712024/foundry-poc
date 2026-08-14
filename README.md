@@ -28,7 +28,7 @@ same mechanism.
 ## Architecture
 
 ```mermaid
-flowchart TB
+flowchart BT
     subgraph AIP["AIP layer — 🔮 future lab"]
         aip["AIP Logic / Agents<br/>reasoning + conditional Action-calling<br/>(where real decision logic would live)"]
     end
