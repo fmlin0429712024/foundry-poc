@@ -63,6 +63,27 @@ flowchart BT
 | **Workflow / operational app** (Workshop or OSDK) | Human-facing door to trigger an Action | ⏭️ skipped — this use case has no real decision logic to justify it (see "Lessons learned") |
 | **AIP** (agents reasoning over the Ontology) | Conditional, dynamic decision-making — *not* just "set this field" | 🔮 next lab, with a use case that actually needs it |
 
+### What this stack reveals about AI-assisted development
+
+The goal throughout was code-first: the more a layer can be driven by code, the more an AI coding assistant can
+build it directly. Mapped against what actually happened in this lab, that produces **two distinct flavors of
+AI assistance**, not one:
+
+1. **AI writes code directly** — no browser needed. This worked for Data/Transform (an AI coding assistant wrote
+   and ran the ingestion scripts and the PySpark transform end-to-end) and would work for Workflow if built via
+   OSDK instead of Workshop, since OSDK is a generated code package, not a GUI.
+2. **AI drives the GUI on your behalf** — a browser-capable agent (used here for the Ontology layer, where no
+   code path exists on this account tier) clicks through the same screens a human would, but autonomously.
+   Genuinely different capability requirement (browser control vs. code generation), but still "AI does the work"
+   from the user's perspective.
+
+Which flavor applies is a property of the *layer*, not a general statement about the platform — "Foundry is/isn't
+AI-assistant-friendly" is the wrong frame. The accurate one is per-layer: Data/Transform and (if built) Workflow
+are code-first; Ontology structure is not, on this tier; whether AIP is code-first wasn't tested here — the SDK
+does expose an `aip_agents` client and Foundry's Actions can be backed by written TypeScript/Python "Functions,"
+both seen in passing during this lab, which suggest a code path likely exists — first thing to confirm in the
+next lab, not assumed from this one.
+
 ## The use case
 
 Two office supply companies merged; their legacy order systems don't agree on format, and reassigning orders to
