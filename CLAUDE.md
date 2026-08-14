@@ -4,11 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project status
 
-Ingestion and the `all_orders` transform are built and verified end-to-end. The simplified Ontology contains one
-healthy `Order` object type backed by `all_orders`; it uses Object Storage v1/Phonograph because V2 initial sync
-fails on this Developer stack. SDK queries return 203 objects (206 rows minus three duplicate primary keys).
-Actions are defined but edits are disabled; the writeback/edit dataset, operational view, and end-to-end Assign
-test remain. See `scripts/foundry_resources.md` for resource RIDs and the full indexing workaround.
+**Complete against the brief's success criteria.** Ingestion, the `all_orders` transform, and the `Order` Ontology
+object type (203 objects, Object Storage v1/Phonograph — V2 initial sync fails on this Developer stack) are built
+and verified. The `Assign` action is live (writeback dataset `all_orders_edited` generated, edits enabled) and
+independently re-verified end-to-end via SDK on two separate orders. Only the optional Workshop operational view
+(not required by success criteria) remains unbuilt. See `scripts/foundry_resources.md` for resource RIDs and the
+full indexing workaround.
 
 This repo is pushed to GitHub at `fmlin0429712024/foundry-poc` (public). Foundry's own Code Repository
 (a *separate* git repo, hosted inside Foundry — see "Two repositories" below) is not derived from it automatically.

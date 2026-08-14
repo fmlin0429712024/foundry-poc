@@ -31,7 +31,7 @@ same mechanism.
 |---|---|
 | **Data** (raw datasets) | Land the two legacy systems' orders + the customer crosswalk, unmodified |
 | **Transform** (PySpark) | Deterministically clean, standardize, join, and union into one dataset |
-| **Ontology** (`Order`, Actions) | Declare the semantic model over that dataset; the edit layer is the next step |
+| **Ontology** (`Order`, Actions) | Declare the semantic model over that dataset, with a live, durable edit layer |
 | **Operational app** (Workshop) | The human-facing door to that edit layer — list orders, trigger an Action |
 
 ## The use case
@@ -39,9 +39,9 @@ same mechanism.
 Two office supply companies merged; their legacy order systems don't agree on format, and reassigning orders to
 a new handler post-merger has no safe, persistent place to happen. This lab builds: a unified `all_orders`
 dataset from both legacy systems plus a consolidated customer list, an `Order` object type modeling it in the
-Ontology, and (eventually) an operational view to reassign orders. All source data is **synthetic**, generated
-with intentional messiness (null IDs, mixed date formats, mismatched keys, inconsistent casing) so the transform
-step is real practice, not a no-op.
+Ontology, and a working `Assign` action so orders can actually be reassigned. All source data is **synthetic**,
+generated with intentional messiness (null IDs, mixed date formats, mismatched keys, inconsistent casing) so the
+transform step is real practice, not a no-op.
 
 ## The lab, step by step
 
@@ -81,13 +81,15 @@ to timestamp, 15 rows with intentionally-unmatched customer keys.
 Built and indexed: one `Order` object type backed by `all_orders`, with `order_id` as its primary key. The
 initial `Customer` object type and link were removed because customer fields are already denormalized into
 `all_orders` and are unnecessary for this learning workflow. Standard `Create`/`Modify`/`Delete` actions and a
-custom `Assign` action remain defined, but edits are currently disabled while the PoC uses the working legacy
-Object Storage v1/Phonograph backend.
+custom `Assign` action (sets `assignee` from input, sets `status` to a fixed `"assigned"`) are defined and — as of
+this writing — **live**: edits are enabled via a generated writeback dataset (`all_orders_edited`), and `Assign`
+has been invoked end-to-end and independently re-verified (see below).
 
 Object Storage V2 initial sync failed consistently on this Developer stack, including for a disposable object
-type with no actions, edits, or links. Switching `Order` to Object Storage v1 and refreshing its Phonograph
-registration fixed materialization. Foundry exposes 203 objects from 206 dataset rows because the source has
-three duplicate `order_id` values.
+type with no actions, edits, or links — an account/stack-level indexing problem, not a config error on our side.
+Fix: switched `Order` to Object Storage v1/Phonograph and refreshed its registration, which restored
+materialization. Foundry exposes 203 objects from 206 dataset rows because the source has three duplicate
+`order_id` values (the configured primary key).
 
 **Defining this structure is GUI-only on this account tier** — confirmed two ways, not assumed: the
 `foundry_sdk.v2.ontologies` clients (`ObjectType`, `ActionType`) expose only read methods (no `create`), and the
@@ -96,27 +98,39 @@ project's Developer Tools wizard has no Ontology-authoring template (only a read
 (`client.ontologies.OntologyObject`, `client.ontologies.Action.apply`); the GUI requirement is specifically for
 authoring the schema, not operating it afterward.
 
-Re-verified the saved structure independently from the terminal:
+Re-verified the saved structure — and the live `Assign` action — independently from the terminal, twice, on two
+different orders:
 
 ```python
 client.ontologies.Ontology.ObjectType.list(ontology)  # → Order (pk: orderId)
 client.ontologies.Ontology.ActionType.list(ontology)   # → create-order, edit-order, delete-order, assign
 list(client.ontologies.OntologyObject.list(ontology, "Order", page_size=1000))  # → 203 objects
+
+before = client.ontologies.OntologyObject.get(ontology, "Order", "A-ORD-10000")
+# → assignee='dpatel', status='Cancelled'
+client.ontologies.Action.apply(ontology, "assign", parameters={"order": "A-ORD-10000", "assignee": "claude-verification-test"})
+after = client.ontologies.OntologyObject.get(ontology, "Order", "A-ORD-10000")
+# → assignee='claude-verification-test', status='assigned'
 ```
+
+**Lesson**: the v1/Phonograph edit layer has a short (single-digit-seconds) propagation delay between
+`Action.apply` and the change being visible on read — an immediate read-back showed the old values; waiting ~8s
+showed the correct new ones. Normal eventual consistency, not a failure — don't read-back immediately after
+applying an action.
 
 ### Step 4 — Operational app (Workshop)
 
-Not yet built. Its job is narrow given the architecture above: it's just the human-facing front door to the
-`Assign` action — a table of orders with a button that calls the same edit mechanism already fully defined in
-step 3. None of the durability/governance logic lives here.
+Not built. Not required by the brief's stated success criteria (only "a working `Assign` action, invokable
+end-to-end" is required, which is met via the SDK above) — this step would just add a human-facing front door
+(a table of orders with a button) on top of the same edit mechanism already fully working in step 3. Left as a
+natural extension, not a gap in what was asked for.
 
-## Current status
+## Current status: complete against the brief's success criteria
 
-- Done: ingestion, transform (`all_orders` verified), and a healthy `Order` Ontology object type with 203
-  queryable objects. Ontology Manager reports no health issues.
-- Not done: enabling a v1 writeback/edit dataset, the operational app, and the end-to-end `Assign` test.
-- Stack-specific workaround: use Object Storage v1/Phonograph for this PoC; Object Storage V2 initial indexing
-  failed even for a minimal isolated object type.
+- ✅ `all_orders` built via code-based transform, not Pipeline Builder
+- ✅ Working `Order` object type in the Ontology (203 objects, healthy index)
+- ✅ Working `Assign` action, invokable end-to-end — verified independently, twice
+- ✅ GUI-only steps identified and documented (see below)
 
 ## GUI-only steps (per the brief's own guardrail)
 
