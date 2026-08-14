@@ -70,3 +70,27 @@ eventually reported `Index failed`; the working fallback is documented below.
 - **Current status:** Ontology Manager reports `Order` as `Indexed` and Health issues reports `No health issues
   found`. SDK object queries succeed and return 203 Order objects. `all_orders` has 206 rows but only 203 unique
   `order_id` values, so the object count is correct for the configured primary key.
+
+## Enabling Assign writeback
+
+- In `Order` → `Datasources` → `Edits`, clicked `Generate`; Foundry created `all_orders_edited` at
+  `/fmlin0429712024-16d385/foundry-poc` with RID
+  `ri.foundry.main.dataset.3c768c10-9ab3-4b5e-90a3-393ed7c3a828`.
+- Saved with `Only allow edits via actions` enabled, then manually updated the Phonograph registration so it
+  picked up the writeback dataset. Registration is `Registered`; index status is `Indexed`.
+- Exact SDK verification output:
+
+  ```text
+  operation_id='ri.actions.main.action.4424142c-8a6b-45d0-82a8-ec3567b9d976' validation=ValidateActionResponseV2(result='VALID', submission_criteria=[], parameters={}) edits=None
+  ```
+
+- A fresh SDK object read confirmed the write: `{'orderId': 'B-ORD-20000', 'assignee': 'test-user', 'status':
+  'assigned'}`.
+
+**Independently re-verified** (separate session, separate order): applying `assign` on `A-ORD-10000` (before:
+`assignee='dpatel'`, `status='Cancelled'`) with `assignee='claude-verification-test'` showed no change on an
+immediate read, but the write was confirmed correct after an ~8s wait
+(`assignee='claude-verification-test'`, `status='assigned'`). **Lesson**: the v1/Phonograph-backed edit layer has
+a short (single-digit-seconds) propagation delay between `Action.apply` and the change being visible to
+`OntologyObject.get`/`.list` — expected eventual consistency, not a failure; don't read-back immediately after
+applying an action in future tests/automation.
