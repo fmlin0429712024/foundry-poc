@@ -55,7 +55,18 @@ saved cleanly on the first attempt.
 
 ## Ontology Manager gotcha: object type sync delay
 
-Right after creating a dataset-backed object type (`Order`, `Customer`) and saving, querying its objects via
-`client.ontologies.OntologyObject.list(...)` returns a `ConflictError` / `OntologySyncingObjectTypes` for a few
-minutes while Foundry indexes the backing dataset into real object instances. Expected — just retry after a
-short wait.
+Immediately after saving a dataset-backed object type, querying it can temporarily return `ConflictError` /
+`OntologySyncingObjectTypes`. A short delay is normal, but persistent errors are not. On this stack the V2 sync
+eventually reported `Index failed`; the working fallback is documented below.
+
+## Order object sync investigation
+
+- **Root cause:** Object Storage V2 indexing is broken on this Developer stack. `Order`, `Customer`, and a
+  disposable `OrderSimple` type with no edits, actions, or links all failed initial V2 syncs. This rules out the
+  datasets, the customer link, and action/edit configuration as causes.
+- **Fix:** Disabled edits on `Order`, deleted the disposable test type, switched `Order` to Object Storage v1
+  (Phonograph), and manually updated its Phonograph registration. The sync succeeded. The unnecessary
+  `Order`–`Customer` link and failed `Customer` object type were deleted.
+- **Current status:** Ontology Manager reports `Order` as `Indexed` and Health issues reports `No health issues
+  found`. SDK object queries succeed and return 203 Order objects. `all_orders` has 206 rows but only 203 unique
+  `order_id` values, so the object count is correct for the configured primary key.

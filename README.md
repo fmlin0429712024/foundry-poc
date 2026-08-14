@@ -10,11 +10,11 @@ The standard framing is: **objects are nodes, links are edges, actions are opera
 True, but incomplete on its own — the part that actually explains how Foundry behaves is this:
 
 **Foundry's Ontology is a semantic layer declared over tabular data, not a native graph database.** Unlike Neo4j
-(where a relationship is physically stored as an edge), a Foundry Link is a declared **foreign-key join**: when
-building the `Order ↔ Customer` link in this lab, the relationship type offered was literally called *"Object
-type foreign keys"* — "this column on Order equals that column on Customer." Traversal (`order.customer.get()`)
-resolves that join at query time; nothing is stored as a graph edge under the hood. Object types backed by a
-dataset (as both of ours are) sit on top of ordinary columnar/Spark-backed storage.
+(where a relationship is physically stored as an edge), a Foundry Link is a declared **foreign-key join**. The
+original `Order ↔ Customer` experiment offered *"Object type foreign keys"*: "this column on Order equals that
+column on Customer." Traversal resolves that join at query time; nothing is stored as a graph edge underneath.
+The link was later removed from the final simplified PoC because customer attributes are already denormalized
+onto each order.
 
 This explains the one piece of real *value* the Ontology adds over just querying the merged dataset directly.
 A Foundry transform is a **batch, deterministic recomputation** — its output dataset gets fully rebuilt from the
@@ -31,7 +31,7 @@ same mechanism.
 |---|---|
 | **Data** (raw datasets) | Land the two legacy systems' orders + the customer crosswalk, unmodified |
 | **Transform** (PySpark) | Deterministically clean, standardize, join, and union into one dataset |
-| **Ontology** (`Order`, `Customer`, Link, Actions) | Declare the semantic model over that dataset, and add a durable, governed edit layer on top of it |
+| **Ontology** (`Order`, Actions) | Declare the semantic model over that dataset; the edit layer is the next step |
 | **Operational app** (Workshop) | The human-facing door to that edit layer — list orders, trigger an Action |
 
 ## The use case
@@ -78,10 +78,16 @@ to timestamp, 15 rows with intentionally-unmatched customer keys.
 
 ### Step 3 — Ontology (Ontology Manager)
 
-Built: `Order` (backed by `all_orders`, primary key `order_id`) and `Customer` (backed by
-`consolidated_customers`, primary key `consolidated_customer_id`); a many-to-one Link between them on
-`consolidated_customer_id`; standard `Create`/`Modify`/`Delete` actions on `Order`; and a custom `Assign` action
-(sets `assignee` from input, sets `status` to a fixed `"assigned"`) — the durable-edit mechanism described above.
+Built and indexed: one `Order` object type backed by `all_orders`, with `order_id` as its primary key. The
+initial `Customer` object type and link were removed because customer fields are already denormalized into
+`all_orders` and are unnecessary for this learning workflow. Standard `Create`/`Modify`/`Delete` actions and a
+custom `Assign` action remain defined, but edits are currently disabled while the PoC uses the working legacy
+Object Storage v1/Phonograph backend.
+
+Object Storage V2 initial sync failed consistently on this Developer stack, including for a disposable object
+type with no actions, edits, or links. Switching `Order` to Object Storage v1 and refreshing its Phonograph
+registration fixed materialization. Foundry exposes 203 objects from 206 dataset rows because the source has
+three duplicate `order_id` values.
 
 **Defining this structure is GUI-only on this account tier** — confirmed two ways, not assumed: the
 `foundry_sdk.v2.ontologies` clients (`ObjectType`, `ActionType`) expose only read methods (no `create`), and the
@@ -93,8 +99,9 @@ authoring the schema, not operating it afterward.
 Re-verified the saved structure independently from the terminal:
 
 ```python
-client.ontologies.Ontology.ObjectType.list(ontology)  # → Order (pk: orderId), Customer (pk: consolidatedCustomerId)
+client.ontologies.Ontology.ObjectType.list(ontology)  # → Order (pk: orderId)
 client.ontologies.Ontology.ActionType.list(ontology)   # → create-order, edit-order, delete-order, assign
+list(client.ontologies.OntologyObject.list(ontology, "Order", page_size=1000))  # → 203 objects
 ```
 
 ### Step 4 — Operational app (Workshop)
@@ -105,13 +112,11 @@ step 3. None of the durability/governance logic lives here.
 
 ## Current status
 
-- Done: ingestion, transform (`all_orders` verified), Ontology structure (`Order`, `Customer`, Link, actions
-  — verified via SDK).
-- Not done: Ontology object materialization for `Order` (dataset rows → queryable object instances) has not yet
-  been confirmed complete; the operational app; the end-to-end Assign test.
-- Known limitation, cause not yet established: on this account tier, the public API surfaces no sync-job-status
-  or log endpoint for diagnosing why object materialization is slow — Ontology Manager's own Health panel is the
-  only place with more detail, if any exists.
+- Done: ingestion, transform (`all_orders` verified), and a healthy `Order` Ontology object type with 203
+  queryable objects. Ontology Manager reports no health issues.
+- Not done: enabling a v1 writeback/edit dataset, the operational app, and the end-to-end `Assign` test.
+- Stack-specific workaround: use Object Storage v1/Phonograph for this PoC; Object Storage V2 initial indexing
+  failed even for a minimal isolated object type.
 
 ## GUI-only steps (per the brief's own guardrail)
 
