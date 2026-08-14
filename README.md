@@ -27,12 +27,41 @@ same mechanism.
 
 ## Architecture
 
-| Layer | Job |
-|---|---|
-| **Data** (raw datasets) | Land the two legacy systems' orders + the customer crosswalk, unmodified |
-| **Transform** (PySpark) | Deterministically clean, standardize, join, and union into one dataset |
-| **Ontology** (`Order`, Actions) | Declare the semantic model over that dataset, with a live, durable edit layer |
-| **Operational app** (Workshop) | The human-facing door to that edit layer — list orders, trigger an Action |
+```mermaid
+flowchart TB
+    subgraph AIP["AIP layer — 🔮 future lab"]
+        aip["AIP Logic / Agents<br/>reasoning + conditional Action-calling<br/>(where real decision logic would live)"]
+    end
+
+    subgraph WORKFLOW["Workflow / operational app — ⏭️ skipped, not needed for this use case"]
+        workshop["Workshop<br/>(no-code GUI)"]
+        osdk["OSDK-built app<br/>(code-first alternative to Workshop)"]
+    end
+
+    subgraph ONTOLOGY["Ontology — ✅ structure via Ontology Manager GUI, used via foundry-platform-sdk"]
+        objtype["Order object type<br/>203 objects, Object Storage v1"]
+        action["Assign action<br/>writeback-enabled edit layer"]
+    end
+
+    subgraph DATA["Data — ✅"]
+        raw["orders_system_a/b.csv<br/>consolidated_customers.csv"]
+        transform["PySpark transform"]
+        allorders["all_orders dataset<br/>206 rows"]
+    end
+
+    raw --> transform --> allorders --> objtype --> action
+    action -.not built.-> workshop
+    action -.not built.-> osdk
+    workshop -.next lab.-> aip
+    osdk -.next lab.-> aip
+```
+
+| Layer | Job | This lab |
+|---|---|---|
+| **Data** (raw datasets → transform) | Land, clean, standardize, join, union into `all_orders` | ✅ built, CLI/SDK-first |
+| **Ontology** (`Order`, `Assign`) | Semantic model + a live, durable edit layer over that dataset | ✅ built — structure via GUI, usage via `foundry-platform-sdk` |
+| **Workflow / operational app** (Workshop or OSDK) | Human-facing door to trigger an Action | ⏭️ skipped — this use case has no real decision logic to justify it (see "Lessons learned") |
+| **AIP** (agents reasoning over the Ontology) | Conditional, dynamic decision-making — *not* just "set this field" | 🔮 next lab, with a use case that actually needs it |
 
 ## The use case
 
